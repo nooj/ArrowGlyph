@@ -34,46 +34,44 @@ public:
 
   // Description:
   // Turn on/off orienting of arrows along vector/normal.
-  vtkSetMacro(Orient,int);
-  vtkBooleanMacro(Orient,int);
-  vtkGetMacro(Orient,int);
+  vtkSetMacro(ScaleByOrientationVectorMagnitude,int);
+  vtkBooleanMacro(ScaleByOrientationVectorMagnitude,int);
+  vtkGetMacro(ScaleByOrientationVectorMagnitude,int);
 
   // Description:
   // Array (vector) to use to control Orientation
-  vtkSetStringMacro(OrientArray);
-  vtkGetStringMacro(OrientArray);
+  vtkSetStringMacro(OrientationVectorArray);
+  vtkGetStringMacro(OrientationVectorArray);
 
   // Description:
-  // Turn on/off scaling of arrows according to LengthArray
-  vtkSetMacro(LengthScaling,int);
-  vtkBooleanMacro(LengthScaling,int);
-  vtkGetMacro(LengthScaling,int);
+  // A Scaling factor to apply to the arrows in conjunction with ScaleArray
+  vtkSetMacro(ScaleFactor,double);
+  vtkGetMacro(ScaleFactor,double);
 
   // Description:
-  // A Scaling factor to apply to the arrows in conjunction with LengthArray
-  vtkSetMacro(LengthFactor,double);
-  vtkGetMacro(LengthFactor,double);
+  // Array to use to control Scale
+  vtkSetStringMacro(ScaleArray);
+  vtkGetStringMacro(ScaleArray);
 
   // Description:
-  // Array to use to control Length
-  vtkSetStringMacro(LengthArray);
-  vtkGetStringMacro(LengthArray);
+  // A Scaling factor to apply to the arrows in conjunction with ShaftRadiusArray
+  vtkSetMacro(ShaftRadiusFactor,double);
+  vtkGetMacro(ShaftRadiusFactor,double);
 
   // Description:
-  // Turn on/off scaling of arrows according to RadiusArray
-  vtkSetMacro(RadiusScaling,int);
-  vtkBooleanMacro(RadiusScaling,int);
-  vtkGetMacro(RadiusScaling,int);
+  // Array to use to control ShaftRadius
+  vtkSetStringMacro(ShaftRadiusArray);
+  vtkGetStringMacro(ShaftRadiusArray);
 
   // Description:
-  // A Scaling factor to apply to the arrows in conjunction with RadiusArray
-  vtkSetMacro(RadiusFactor,double);
-  vtkGetMacro(RadiusFactor,double);
+  // A Scaling factor to apply to the arrows in conjunction with TipRadiusArray
+  vtkSetMacro(TipRadiusFactor,double);
+  vtkGetMacro(TipRadiusFactor,double);
 
   // Description:
-  // Array to use to control Radius
-  vtkSetStringMacro(RadiusArray);
-  vtkGetStringMacro(RadiusArray);
+  // Array to use to control TipRadius
+  vtkSetStringMacro(TipRadiusArray);
+  vtkGetStringMacro(TipRadiusArray);
 
   // Description:
   // Limit the number of points to glyph
@@ -89,22 +87,6 @@ public:
   // Set/get flag to cause randomization of which points to mask.
   void SetRandomMode(int mode);
   int GetRandomMode();
-
-
-  // Description:
-  // Enable/disable the generation of point ids as part of the output. The
-  // point ids are the id of the input generating point. The point ids are
-  // stored in the output point field data and named "InputPointIds". Point
-  // generation is useful for debugging and pick operations.
-  vtkSetMacro(GeneratePointIds,int);
-  vtkGetMacro(GeneratePointIds,int);
-  vtkBooleanMacro(GeneratePointIds,int);
-
-  // Description:
-  // Set/Get the name of the PointIds array if generated. By default the Ids
-  // are named "InputPointIds", but this can be changed with this function.
-  vtkSetStringMacro(PointIdsName);
-  vtkGetStringMacro(PointIdsName);
 
   // Description:
   // This can be overwritten by subclass to return 0 when a point is
@@ -132,26 +114,23 @@ protected:
                      vtkInformationVector** inputVector,
                      vtkInformationVector* outputVector);
 
-  int             Orient;
-  char           *OrientArray;
+  int             ScaleByOrientationVectorMagnitude;
+  char           *OrientationVectorArray;
   //
-  int             LengthScaling;
-  double          LengthFactor;
-  char           *LengthArray;
+  double          ScaleFactor;
+  char           *ScaleArray;
   //
-  int             RadiusScaling;
-  double          RadiusFactor;
-  char           *RadiusArray;
+  double          ShaftRadiusFactor;
+  char           *ShaftRadiusArray;
+  //
+  double          TipRadiusFactor;
+  char           *TipRadiusArray;
   //
   vtkMaskPoints  *MaskPoints;
   int             MaximumNumberOfPoints;
   int             UseMaskPoints;
   int             RandomMode;
 
-  // produce input points ids for each output point
-  int             GeneratePointIds; 
-  char           *PointIdsName;
-  
   //
 //  vtkSmartPointer<vtkArrowSource> ArrowSourceObject;
   vtkArrowSource *ArrowSourceObject;
