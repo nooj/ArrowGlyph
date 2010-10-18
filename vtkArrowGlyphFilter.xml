@@ -1,0 +1,109 @@
+<ServerManagerConfiguration>
+
+  <!-- ================================================================ -->
+  <!-- Filters                                                          -->
+  <!-- ================================================================ -->
+  <ProxyGroup name="filters">
+
+    <!-- ================================================================ -->
+    <!-- Arrow Glyph                                                      -->
+    <!-- ================================================================ -->
+    <SourceProxy
+      name="ArrowGlyphFilter"
+      class="vtkArrowGlyphFilter">
+      <Documentation
+         short_help="A customized Glyph filter for arrows only">
+      </Documentation>
+
+      <InputProperty
+         name="Input"
+         command="SetInputConnection">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources"/>
+          <Group name="filters"/>
+        </ProxyGroupDomain>
+        <DataTypeDomain name="input_type">
+          <DataType value="vtkDataSet"/>
+        </DataTypeDomain>
+        <InputArrayDomain name="input_array1" attribute_type="point"
+                          number_of_components="1" optional="1"/>
+        <InputArrayDomain name="input_array2" attribute_type="point"
+                          number_of_components="3" optional="1"/>
+        <Documentation>
+          This property specifies the input to the filter. This is the dataset to which the glyphs will be applied.
+        </Documentation>
+      </InputProperty>
+
+
+      <ProxyProperty name="ArrowSourceObject" command="SetArrowSourceObject">
+        <ProxyGroupDomain name="groups">
+          <Group name="sources"/>
+        </ProxyGroupDomain>
+        <ProxyListDomain name="proxy_list">
+            <Proxy group="sources" name="ArrowSource" />
+          </ProxyListDomain>
+      </ProxyProperty>
+      
+ <!--
+
+      <DoubleVectorProperty
+         name="RotationAngle"
+         command="SetRotationAngle"
+         number_of_elements="1"
+         animateable="0"
+         default_values="0.0" >
+      </DoubleVectorProperty>
+
+      <DoubleVectorProperty
+         name="RotationAxis"
+         command="SetRotationAxis"
+         number_of_elements="3"
+         animateable="0"
+         default_values="0.0 0.0 1.0" >
+      </DoubleVectorProperty>
+
+      <DoubleVectorProperty
+         name="RotationOrigin"
+         command="SetRotationOrigin"
+         number_of_elements="3"
+         animateable="0"
+         default_values="0.0 0.0 0.0" >
+      </DoubleVectorProperty>
+
+      <DoubleVectorProperty
+         name="Translate"
+         command="SetTranslate"
+         number_of_elements="3"
+         animateable="0"
+         default_values="0.0 0.0 0.0" >
+      </DoubleVectorProperty>
+
+      <DoubleVectorProperty
+         name="Scale"
+         command="SetScale"
+         number_of_elements="3"
+         animateable="0"
+         default_values="1.0 1.0 1.0" >
+      </DoubleVectorProperty>
+
+      <IntVectorProperty
+        name="UseDataTime"
+        command="SetUseDataTime"
+        number_of_elements="1"
+        animateable="0"
+        default_values="0"
+        label="Use Real Data Time">
+        <BooleanDomain name="bool"/>
+        <Documentation>
+          When set, the time variable is taken from the time input as
+          a real time value, when unset, time is simply an integer
+          from zero to N-1 for each step
+        </Documentation>
+      </IntVectorProperty>
+-->
+    </SourceProxy>
+      
+  </ProxyGroup>
+  
+</ServerManagerConfiguration>
+
