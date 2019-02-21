@@ -5,7 +5,7 @@
 <a href="https://www.paraview.org/">Paraview</a> is an open-source, multi-platform data analysis and visualization application. 
 
 ## Installation
-To install, manually compile ParaView with the ArrowGlyph plugin configured.  <a href="https://www.paraview.org/documentation/">ParaView documentation</a>
+To install ArrowGlyph, manually compile ParaView with the ArrowGlyph plugin configured.  (For reference, here is the <a href="https://www.paraview.org/documentation/">ParaView documentation</a>.)
 
 According to <a href="https://gitlab.kitware.com/paraview/paraview/issues/16902">Issue #16902</a>, it is slowly making its way into a ParaView release.
 
@@ -18,3 +18,5 @@ I first put this github repo up as a way to publicly share it,
 and posted it as <a href="https://www.vtk.org/Bug/view.php?id=13660">Bug #13660</a>.  Several generous people, especially <a href="https://gitlab.kitware.com/wascott">W. Alan Scott</a> 
 tested it and added it to the new bug tracker as 
 <a href="https://gitlab.kitware.com/paraview/paraview/issues/16902">Issue #16902</a>.
+
+One day, it may actually be included into the main codebase, and we can close the Issues.
